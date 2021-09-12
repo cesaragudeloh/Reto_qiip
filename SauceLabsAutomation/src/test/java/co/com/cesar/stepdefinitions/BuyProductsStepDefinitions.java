@@ -1,5 +1,6 @@
 package co.com.cesar.stepdefinitions;
 
+import co.com.cesar.tasks.Login;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,18 +9,25 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
+import static co.com.cesar.utils.Constants.USERNAME;
+import static co.com.cesar.utils.Constants.PASSWORD;
+
 public class BuyProductsStepDefinitions {
 
     @Before
     public void prepareStage() {
         OnStage.setTheStage(new OnlineCast());
-        System.out.println("Before");
     }
 
 
     @Given("that {string} sign in SwagLabs app")
-    public void thatSignInSwagLabsApp(String string) {
-        System.out.println("Given");
+    public void thatSignInSwagLabsApp(String actorName) {
+        theActorCalled(actorName).wasAbleTo(
+                Login.with().username(USERNAME).andPassword(PASSWORD)
+        );
+
     }
 
     @When("He add the {string} to the cart")
