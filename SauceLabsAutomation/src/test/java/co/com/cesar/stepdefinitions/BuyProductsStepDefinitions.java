@@ -1,17 +1,18 @@
 package co.com.cesar.stepdefinitions;
 
+import co.com.cesar.tasks.Checkout;
 import co.com.cesar.tasks.Login;
 import co.com.cesar.tasks.PutProduct;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.serenitybdd.screenplay.ensure.Ensure;
 
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static co.com.cesar.utils.Constants.USERNAME;
-import static co.com.cesar.utils.Constants.PASSWORD;
+import static co.com.cesar.utils.Constants.*;
+import static co.com.cesar.userinterface.CheckoutComplete.*;
 
 public class BuyProductsStepDefinitions {
 
@@ -33,12 +34,18 @@ public class BuyProductsStepDefinitions {
 
     @And("He does the checkout of the purchase")
     public void heDoesTheCheckoutOfThePurchase() {
-        System.out.println("And");
+        theActorInTheSpotlight().attemptsTo(
+                Checkout.thePurchase()
+        );
     }
 
     @Then("He should see that the purchase is successful")
     public void heShouldSeeThatThePurchaseIsSuccessful() {
-        System.out.println("Then");
+        theActorInTheSpotlight().attemptsTo(
+                Ensure.that(CHECKOUT_COMPLETE_TITLE).isDisplayed(),
+                Ensure.that(THANKS_ORDER_LABEL).isDisplayed(),
+                Ensure.that(DETAIL_ORDER_LABEL).isDisplayed()
+        );
     }
 
 }
