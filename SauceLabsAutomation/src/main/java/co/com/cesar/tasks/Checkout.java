@@ -1,6 +1,6 @@
 package co.com.cesar.tasks;
 
-import co.com.cesar.interactions.Scroll;
+import co.com.cesar.interactions.Navigate;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Task;
@@ -24,7 +24,7 @@ public class Checkout implements Task {
                 Enter.theValue(LASTNAME_VALUE).into(LAST_NAME_INPUT),
                 Enter.theValue(POSTALCODE_VALUE).into(POSTAL_CODE_INPUT),
                 Click.on(CONTINUE_BUTTON),
-                Scroll.untilVisibleTarget(FINISH_BUTTON),
+                Navigate.untilVisibleTarget(FINISH_BUTTON),
                 Click.on(FINISH_BUTTON)
         );
     }

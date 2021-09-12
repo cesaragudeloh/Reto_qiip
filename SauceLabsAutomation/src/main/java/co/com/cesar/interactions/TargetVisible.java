@@ -10,11 +10,11 @@ import net.thucydides.core.webdriver.ThucydidesWebDriverSupport;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 
-public class ScrollVisible implements Interaction {
+public class TargetVisible implements Interaction {
 
     private Target target;
 
-    public ScrollVisible(Target target) {
+    public TargetVisible(Target target) {
         this.target = target;
     }
 

@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features/buy_products.feature",
         glue = "co.com.cesar.stepdefinitions",
+        tags = "@BuyProduct",
         snippets = CucumberOptions.SnippetType.CAMELCASE
 )
 
