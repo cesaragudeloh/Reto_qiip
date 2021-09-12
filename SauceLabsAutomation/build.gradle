@@ -16,13 +16,11 @@ targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 buildscript {
     repositories {
         mavenCentral()
-        jcenter()
     }
     dependencies {
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.4.34")
@@ -30,8 +28,8 @@ buildscript {
 }
 
 ext{
-    serenityVersion = '2.4.34'
-    serenityCucumberVersion = '2.4.51'
+    serenityVersion = '2.6.0'
+    serenityCucumberVersion = '2.6.0'
     cucumberVersion = '6.10.4'
 }
 

@@ -42,9 +42,9 @@ public class BuyProductsStepDefinitions {
     @Then("He should see that the purchase is successful")
     public void heShouldSeeThatThePurchaseIsSuccessful() {
         theActorInTheSpotlight().attemptsTo(
-                Ensure.that(CHECKOUT_COMPLETE_TITLE).isDisplayed(),
-                Ensure.that(THANKS_ORDER_LABEL).isDisplayed(),
-                Ensure.that(DETAIL_ORDER_LABEL).isDisplayed()
+                Ensure.that(CHECKOUT_COMPLETE.of(CHECKOUT_COMPLETE_TITLE)).isDisplayed(),
+                Ensure.that(CHECKOUT_COMPLETE.of(THANKS_ORDER_LABEL)).isDisplayed(),
+                Ensure.that(CHECKOUT_COMPLETE.of(DETAIL_ORDER_LABEL)).isDisplayed()
         );
     }
 
