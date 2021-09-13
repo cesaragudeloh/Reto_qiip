@@ -10,6 +10,7 @@
 */.idea
 */history/
 *.iml
+*.ipr
 *.iws
 
 # Mac
